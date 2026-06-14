@@ -1,0 +1,14 @@
+services:
+  ingestion:
+    image: golang:1.23-alpine
+    user: "${UID}:${GID}"
+    volumes:
+      - ./services/ingestion:/app
+      - go-cache:/go
+      - go-build-cache:/root/.cache/go-build
+    working_dir: /app
+    profiles:
+      - tools
+volumes:
+  go-cache:
+  go-build-cache:
