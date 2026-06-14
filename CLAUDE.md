@@ -69,7 +69,9 @@ Per ogni nuova task Claude struttura il briefing così (destinatario: l'autore):
 
 ## Ambiente Docker
 
-**Regola fondamentale**: nessuna dipendenza installata sull'host eccetto Docker e Docker Compose.
+**Regola fondamentale**: nessuna dipendenza dello **stack applicativo** installata sull'host eccetto Docker e Docker Compose. Go, Python, Node, modelli e librerie vivono esclusivamente nei container.
+
+**Eccezione esplicita — tooling di sviluppo**: gli strumenti che operano sul repo, non sull'applicazione, possono stare sull'host: `git`, `gh` (GitHub CLI). Non fanno parte dello stack runtime e non vanno containerizzati.
 
 Ogni servizio ha il proprio Dockerfile. Lo sviluppo avviene con `docker-compose.dev.yml` (hot reload abilitato). La produzione usa `docker-compose.yml`.
 
