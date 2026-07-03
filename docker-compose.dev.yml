@@ -1,14 +1,14 @@
 services:
   ingestion:
     image: golang:1.23-alpine
-    user: "${UID}:${GID}"
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      HOME: /tmp
+      GOCACHE: /go/.cache/go-build
     volumes:
       - ./services/ingestion:/app
       - go-cache:/go
-      - go-build-cache:/root/.cache/go-build
     working_dir: /app
-    profiles:
-      - tools
+    profiles: ["tools"]      # ADR-006: job dormiente, on-demand
 volumes:
   go-cache:
-  go-build-cache:

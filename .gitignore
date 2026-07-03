@@ -1,3 +1,7 @@
 # Briefing pre-task: artefatti di processo locali, non versionati.
 # Vedi briefing/CLAUDE.md per il flusso.
 briefing/
+
+#Variabili d'ambiente del sistema, non versionate.
+.env
+.aider*
