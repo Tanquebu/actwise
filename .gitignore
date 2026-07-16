@@ -5,3 +5,4 @@ briefing/
 #Variabili d'ambiente del sistema, non versionate.
 .env
 .aider*
+.vscode/launch.json
